@@ -1,21 +1,28 @@
-//
-//  ContentView.swift
-//  DigitalContest
-//
-//  Created by godemodegame on 25/09/2019.
-//  Copyright © 2019 godemodegame. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        TabView {
+            NavigationView {
+                MainView(mainViewType: .mario)
+                    .navigationBarTitle(Text("Main"))
+                
+            }
+            .tabItem {
+                Image(systemName: "bubble.middle.top")
+                Text("MainView")
+            }
+            .tag(0)
+            
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Профиль")
+            }
+            .tag(1)
+            
+        }
+        .edgesIgnoringSafeArea(.top)
+        .accentColor(.green)
     }
 }
