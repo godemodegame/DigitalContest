@@ -1,21 +1,23 @@
-//
-//  LastEmptyCellView.swift
-//  DigitalContest
-//
-//  Created by godemodegame on 29/09/2019.
-//  Copyright © 2019 godemodegame. All rights reserved.
-//
-
 import SwiftUI
 
 struct LastEmptyCellView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            RoundedAtBottomRectangle(cornerRadius: 4, style: .continuous)
+                .frame(width: 8, height: 25)
+                .padding(.leading, 20)
+                .foregroundColor(.green)
+            Spacer()
+        }
     }
 }
 
-struct LastEmptyCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        LastEmptyCellView()
+struct RoundedAtBottomRectangle: Shape {
+    var cornerRadius: CGFloat
+    var style: RoundedCornerStyle
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+        return Path(path.cgPath)
     }
 }
