@@ -1,9 +1,14 @@
-//
-//  MarioModelView.swift
-//  DigitalContest
-//
-//  Created by godemodegame on 28/09/2019.
-//  Copyright © 2019 godemodegame. All rights reserved.
-//
-
 import Foundation
+
+struct MarioModelView: Identifiable {
+    let id: Int
+    let name: String
+    let length: String
+    let damages: [MarioModelView.PipeDamage]
+    
+    struct PipeDamage: Identifiable {
+        let id: Int
+        let name: String
+        let location: String
+    }
+}

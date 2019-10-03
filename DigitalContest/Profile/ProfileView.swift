@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Binding var showMario: Bool
+    
     var body: some View {
         VStack {
             ZStack {
@@ -25,16 +27,20 @@ struct ProfileView: View {
                 Text("Иван Петров")
                     .font(.title)
                     .padding()
+                
                 Spacer()
             }
             
+//            Toggle(isOn: self.$showMario) {
+//                Text(#"Режим "Марио""#)
+//            }
+//            .padding()
+            
             Spacer()
+            
+            Text("Выход")
+                .foregroundColor(.red)
+                .font(.title)
         }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }

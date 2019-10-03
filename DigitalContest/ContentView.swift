@@ -1,11 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isMario: Bool = false
+    
     var body: some View {
         TabView {
             NavigationView {
-                MainView(mainViewType: .mario)
-                    .navigationBarTitle(Text("Main"))
+                MainView(mainViewType: self.isMario ? .mario : .list)
+                    .navigationBarTitle(Text("История"))
                 
             }
             .tabItem {
@@ -14,7 +16,7 @@ struct ContentView: View {
             }
             .tag(0)
             
-            ProfileView()
+            ProfileView(showMario: self.$isMario)
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Профиль")

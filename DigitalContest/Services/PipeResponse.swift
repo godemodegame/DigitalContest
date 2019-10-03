@@ -1,9 +1,13 @@
-//
-//  PipeResponse.swift
-//  DigitalContest
-//
-//  Created by godemodegame on 28/09/2019.
-//  Copyright © 2019 godemodegame. All rights reserved.
-//
-
 import Foundation
+
+struct Pipe: Codable {
+    let id: Int
+    let name: String
+    let length: Double
+    let defects: [PipeDamage]?
+}
+
+struct PipeDamage: Codable {
+    let defect_type: String
+    let distance: Double
+}
